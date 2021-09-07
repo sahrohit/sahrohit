@@ -58,7 +58,7 @@
 
 <br>
 <h3>Github Statistics:</h3>
-<div style="display: flex; flex-wrap: wrap; width:100%">
+<!-- <div style="display: flex; flex-wrap: wrap; width:100%">
 <div style="padding: 0rem; width:50%;text-align:center;">      
 <img src="https://github-readme-stats.vercel.app/api?username=sahrohit&show_icons=true&count_private=true&theme=vue" />
 </div>
@@ -66,8 +66,20 @@
 
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sahrohit&layout=compact&theme=vue" width="100%" height="82%"/>
 </div>
-</div>
+</div> -->
 
-<div style="text-align:center;">
+<table>
+  <tr>
+    <td>
+      <img src="https://github-readme-stats.vercel.app/api?username=sahrohit&show_icons=true&count_private=true&theme=vue" />
+    </td>
+    <td>
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sahrohit&layout=compact&theme=vue"/>
+    </td>
+  </tr>
+</table>
+
+<div align="center">
+<h3> : Github Visits : </h3>
 <img src="https://count.getloli.com/get/@:rohit?theme=rule34" alt="Visitor Counter" />
 </div>
