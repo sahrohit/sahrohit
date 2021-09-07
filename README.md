@@ -11,7 +11,7 @@
         <img alt="followers" title="Follow me on Twitter" src="https://custom-icon-badges.herokuapp.com/twitter/follow/sah_rohite?color=236ad3&labelColor=1155ba&label=Twitter&logo=twitter&logoColor=white&style=for-the-badge"/>
     </a>
     <a href="https://github.com/sahrohit">
-        <img alt="followers" title="Follow me on Github" src="https://custom-icon-badges.herokuapp.com/github/followers/sahrohit?color=2D333B&labelColor=22272E&style=for-the-badge&logo=github&label=Github&logoColor=white"/>
+        <img alt="followers" title="Follow me on Github" src="https://custom-icon-badges.herokuapp.com/github/followers/sahrohit?color=2D333B&labelColor=22262F&style=for-the-badge&logo=github&label=Github&logoColor=white"/>
     </a>
     <a href="https://linkedin.com/in/sahrohit">
         <img alt="followers" title="Connect with me on Linkedin" src="https://img.shields.io/badge/Linkedin-blue?logo=linkedin&style=for-the-badge"/>
@@ -34,12 +34,12 @@
 <div style="display: flex; flex-wrap: wrap;">
     <img src="https://img.icons8.com/color/48/000000/c-programming.png" title="C" alt="c" width="50" height="50" />
     <img src="https://img.icons8.com/color/128/000000/python.png" alt="python" title="Python" width="50" height="50" />
-    <img src="./assets/java.gif" alt="bash" title="Bash" width="50" height="50" />
+    <img src="https://img.icons8.com/color/128/000000/java-coffee-cup-logo--v1.png" alt="bash" title="Bash" width="50" height="50" />
     <img src="https://img.icons8.com/color/128/000000/javascript.png" alt="javascript" title="Javascript" width="50" height="50" />
     <img src="https://img.icons8.com/color/48/000000/html-5--v1.png" alt="html" title="Html" width="50" height="50"/>
     <img src="https://img.icons8.com/color/48/000000/css3.png" alt="css" title="CSS" width="50" height="50" />
     <img src="https://img.icons8.com/color/128/000000/bootstrap.png" alt="bootstrap" title="Bootstrap" width="50" height="50" />
-    <img src="./assets/react.gif" alt="react" title="React Js" width="50" height="50" />
+    <img src="https://img.icons8.com/color/128/000000/react-native.png" alt="react" title="React Js" width="50" height="50" />
     <img src="./assets/nextjs.svg" alt="next" title="Next Js" width="48" height="48" />
     <img src="./assets/nodejs.png" alt="nodejs" title="Node Js" width="50" height="50" />
     <img src="./assets/express.png" alt="express" title="Express Js" width="50" height="50"  />
@@ -64,7 +64,7 @@
 </div>
 <div style="padding: 0rem; width:50%;">
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sahrohit&layout=compact&theme=vue" width="100%" height="82%" style="object-fit: contain;" />
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sahrohit&layout=compact&theme=vue" width="100%" height="82%"/>
 </div>
 </div>
 
