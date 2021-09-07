@@ -79,5 +79,5 @@
 
 <div align="center">
 <h3> : Github Visits : </h3>
-<img src="https://count.getloli.com/get/@:rohit?theme=rule34" alt="Visitor Counter" />
+<img src="https://count.getloli.com/get/@:sahrohit?theme=rule34" alt="Visitor Counter" />
 </div>
