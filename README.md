@@ -1,8 +1,6 @@
-<div style="display: flex; flex-wrap: wrap; justify-content:space-between;">
-    <h1>Hi 👋, I'm Rohit</h1>
-    <img src="https://my-blog-6969.herokuapp.com/weathericon" />
-</div>
-    <h3>A passionate fullstack developer from Nepal</h3>
+<h1>Hi 👋, I'm Rohit <span><img src="https://my-blog-6969.herokuapp.com/weathericon" /></span></h1>
+
+<h3>A passionate fullstack developer from Nepal</h3>
 
 <br>
 
@@ -11,7 +9,7 @@
         <img alt="followers" title="Follow me on Twitter" src="https://custom-icon-badges.herokuapp.com/twitter/follow/sah_rohite?color=236ad3&labelColor=1155ba&label=Twitter&logo=twitter&logoColor=white&style=for-the-badge"/>
     </a>
     <a href="https://github.com/sahrohit">
-        <img alt="followers" title="Follow me on Github" src="https://custom-icon-badges.herokuapp.com/github/followers/sahrohit?color=2D333B&labelColor=22262F&style=for-the-badge&logo=github&label=Github&logoColor=white"/>
+        <img alt="followers" title="Follow me on Github" src="https://custom-icon-badges.herokuapp.com/github/followers/sahrohit?color=363636&labelColor=1D1E1F&style=for-the-badge&logo=github&label=Github&logoColor=white"/>
     </a>
     <a href="https://linkedin.com/in/sahrohit">
         <img alt="followers" title="Connect with me on Linkedin" src="https://img.shields.io/badge/Linkedin-blue?logo=linkedin&style=for-the-badge"/>
