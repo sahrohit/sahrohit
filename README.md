@@ -20,9 +20,9 @@
     <a href="https://medium.com/@sahrohit9586">
         <img alt="followers" title="Medium" src="https://img.shields.io/badge/-Medium-black?logo=medium&style=for-the-badge&logoColor=white"/>
     </a>
-    <!-- <a href="https://github.com/sahrohit">
+    <a href="https://github.com/sahrohit">
         <img alt="followers" title="Follow me on Github" src="https://img.shields.io/reddit/user-karma/combined/imadeyoureadthis26?style=for-the-badge"/>
-    </a> -->
+    </a>
     <a href="https://goo.gl/maps/cjJZSJ2zEgt7SJ2G7">
         <img alt="followers" title="Where I Live" src="https://custom-icon-badges.herokuapp.com/badge/Kathmandu-Nepal-purple?style=for-the-badge&logo=location&logoColor=white"/>
     </a>
