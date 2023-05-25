@@ -59,7 +59,7 @@
 <h4>Database & Streams</h4>
 
 <div style="display: flex; flex-wrap: wrap;">
-    <img src="https://img.icons8.com/color/128/000000/postgresql.png" alt="postgresql" title="PostgreSQL" width="50" height="50" />
+
     <img src="./assets/mysql.svg" alt="MySQL" title="MySQL" width="50" height="50"/>      
     <img src="https://img.icons8.com/color/48/000000/redis.png" alt="Redis" title="Redis" width="50" height="50" />
     <img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="mongodb" title="MongoDB" width="50" height="50" />
