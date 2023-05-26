@@ -56,12 +56,12 @@
     <img src="https://img.icons8.com/color/48/000000/graphql.png" alt="Graphql" title="Graphql" width="50" height="50" />
 </div>
 
-
 <h4>Database & Streams</h4>
 
 <div style="display: flex; flex-wrap: wrap;">
+    <img src="https://img.icons8.com/?size=48&id=38561&format=png" alt="Postgres" title="Postgres" width="50" height="50" />
     <img src="./assets/mysql.svg" alt="MySQL" title="MySQL" width="50" height="50"/>      
-    <img src="https://img.icons8.com/color/48/000000/redis.png" alt="Redis" title="Redis" width="50" height="50" />
+     <img src="https://img.icons8.com/color/48/000000/redis.png" alt="Redis" title="Redis" width="50" height="50" />
     <img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="mongodb" title="MongoDB" width="50" height="50" />
     <img src="https://img.icons8.com/color/48/000000/firebase.png" alt="firebase" title="Firebase" width="50" height="50" />
     <img src="./assets/typeorm.png" alt="Typeorm" title="Typeorm" width="50" height="50"/>    
