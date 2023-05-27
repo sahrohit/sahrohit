@@ -137,7 +137,6 @@
     <img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/000000/external-d3js-a-javascript-library-for-producing-dynamic-interactive-data-visualizations-in-web-browsers-logo-color-tal-revivo.png" alt="Data Driven Documents" title="Data Driven Documents" width="48" height="48" />
     <img src="./assets/solid.svg" alt="Solid" title="Solid Js" width="50" height="50"  />
     <img src="https://img.icons8.com/doodle/48/000000/svetle.png" alt="Svelte" title="Svelte" width="50" height="50" />     
-    <img src="https://img.icons8.com/color/48/000000/vue-js.png" alt="Vue" title="Vue" width="50" height="50" />    
     <img src="./assets/jest.png" alt="Jest" title="Jest" width="48" height="48" />     <img src="./assets/storybook.svg" alt="Storybook" title="Storybook" width="48" height="48" />  
 </div>
 
