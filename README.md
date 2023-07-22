@@ -1,6 +1,6 @@
-<h1>Hi 👋, I'm Rohit <span><img src="https://my-blog-6969.herokuapp.com/weathericon" /></span></h1>
+<h1>Hi 👋, I'm Rohit </h1>
 
-<h3>A passionate fullstack developer from Nepal</h3>
+<h3>Graduate Computer Science student focusing on Web Optimization and Accessibility.</h3>
 
 <br>
 
