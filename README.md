@@ -1,6 +1,6 @@
 <h1>Hi 👋, I'm Rohit </h1>
 
-<h3>Graduate Computer Science student focusing on Web Optimization and Accessibility. You can checkout my <a href="https://sahrohit.com.np">Portfolio (sahrohit.com.np)</a> and <a href="https://sahrohit.netlify.app">Blog (sahrohit.netlify.app)</a> here.</h3>
+<h3>Graduate Computer Science student focusing on Web Optimization and Accessibility. You can checkout my <a href="https://sahrohit.com.np">Portfolio (sahrohit.com.np)</a>, <a href="https://sahrohit.netlify.app">Blog (sahrohit.netlify.app)</a> and <a href="./resume.pdf">Resume</a> here.</h3>
 
 <br>
 
@@ -47,11 +47,11 @@
     <!-- <img src="./assets/mysql.svg" alt="MySQL" title="MySQL" width="50" height="50"/>       -->
      <img src="https://img.icons8.com/color/48/000000/redis.png" alt="Redis" title="Redis" width="50" height="50" />
     <!-- <img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="mongodb" title="MongoDB" width="50" height="50" /> -->
-    <img src="https://img.icons8.com/color/48/000000/firebase.png" alt="firebase" title="Firebase" width="50" height="50" />
+    <!-- <img src="https://img.icons8.com/color/48/000000/firebase.png" alt="firebase" title="Firebase" width="50" height="50" /> -->
     <!-- <img src="./assets/typeorm.png" alt="Typeorm" title="Typeorm" width="50" height="50"/>     -->
     <!-- <img src="./assets/datagrip.png" alt="Datagrip" title="Datagrip" width="50" height="50"/> -->
     <img src="https://img.icons8.com/color/48/000000/docker.png" alt="Docker" title="Docker" width="50" height="50" />
-    <img src="./assets/dokku.png" alt="Dokku" title="Dokku" width="50" height="50" />    
+    <!-- <img src="./assets/dokku.png" alt="Dokku" title="Dokku" width="50" height="50" />     -->
     <!-- <img src="https://img.icons8.com/color/128/000000/python.png" alt="python" title="Python" width="50" height="50" /> -->
     <!-- <img src="https://img.icons8.com/color/128/000000/java-coffee-cup-logo--v1.png" alt="bash" title="Bash" width="50" height="50" /> -->
     <!-- <img src="https://img.icons8.com/color/48/000000/c-programming.png" title="C" alt="C" width="50" height="50" /> -->
