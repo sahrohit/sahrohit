@@ -1,6 +1,6 @@
 <h1>Hi 👋, I'm Rohit </h1>
 
-<h3>Graduate Computer Science student focusing on Web Optimization and Accessibility.</h3>
+<h3>Graduate Computer Science student focusing on Web Optimization and Accessibility. You can checkout my <a href="https://sahrohit.com.np">Portfolio (sahrohit.com.np)</a> and <a href="https://sahrohit.netlify.app">Blog (sahrohit.netlify.app)</a> here.</h3>
 
 <br>
 
@@ -17,9 +17,6 @@
     <a href="https://stackoverflow.com/users/13238555/rohit-kumar-sah">
         <img alt="followers" title="Stack Overflow" src="https://img.shields.io/badge/-Stack%20Overflow-FE7A16?logo=stackoverflow&style=for-the-badge&logoColor=white"/>
     </a>
-    <a href="https://medium.com/@sahrohit9586">
-        <img alt="followers" title="Medium" src="https://img.shields.io/badge/-Medium-black?logo=medium&style=for-the-badge&logoColor=white"/>
-    </a>
     <a href="https://goo.gl/maps/cjJZSJ2zEgt7SJ2G7">
         <img alt="followers" title="Where I Live" src="https://custom-icon-badges.herokuapp.com/badge/Kathmandu-Nepal-purple?style=for-the-badge&logo=location&logoColor=white"/>
     </a>
@@ -27,64 +24,41 @@
 
 <h3>Languages and Tools</h3>
 
-<h4>Frontend Centric</h4>
-
 <div style="display: flex; flex-wrap: wrap;">
     <img src="https://img.icons8.com/color/128/000000/react-native.png" alt="react" title="React Js" width="50" height="50" />
     <img src="./assets/nextjs.svg" alt="next" title="Next Js" width="48" height="48" />     
     <img src="./assets/reactquery.svg" alt="React Query" title="React Query" width="48" height="48" /> 
-    <img src="https://img.icons8.com/color/48/000000/apollo.png" alt="Apollo" title="Apollo" width="50" height="50" />
-    <img src="./assets/urql.svg" alt="Urql" title="Urql" width="48" height="48" /> 
-    <img src="https://img.icons8.com/color/48/000000/redux.png" alt="Redux" title="Redux" width="50" height="50" />
-    <img src="https://img.icons8.com/color/48/000000/css3.png" alt="css" title="CSS" width="50" height="50" />    
+    <!-- <img src="https://img.icons8.com/color/48/000000/apollo.png" alt="Apollo" title="Apollo" width="50" height="50" /> -->
+    <!-- <img src="./assets/urql.svg" alt="Urql" title="Urql" width="48" height="48" />  -->
+    <!-- <img src="https://img.icons8.com/color/48/000000/redux.png" alt="Redux" title="Redux" width="50" height="50" /> -->
+    <!-- <img src="https://img.icons8.com/color/48/000000/css3.png" alt="css" title="CSS" width="50" height="50" />     -->
     <img src="./assets/tailwindcss.svg" alt="TailwindCSS" title="TailwindCSS" width="48" height="48" />
-    <img src="https://img.icons8.com/color/128/000000/bootstrap.png" alt="bootstrap" title="Bootstrap" width="50" height="50" />
-    <img src="https://img.icons8.com/color/48/000000/chakra-ui.png" alt="Chakra UI" title="Chakra UI" width="50" height="50" />
-    <img src="./assets/mantine.svg" alt="Mantine" title="Mantine" width="48" height="48" /> 
-    <img src="./assets/framer.svg" alt="Framer Motion" title="Framer Motion" width="48" height="48" />
-    <img src="https://img.icons8.com/color/48/000000/figma--v1.png" alt="figma" title="Figma" width="50" height="50" />
-
-</div>
-
-<h4>Backend Centric</h4>
-
-<div style="display: flex; flex-wrap: wrap;">
+    <!-- <img src="https://img.icons8.com/color/128/000000/bootstrap.png" alt="bootstrap" title="Bootstrap" width="50" height="50" /> -->
+    <!-- <img src="https://img.icons8.com/color/48/000000/chakra-ui.png" alt="Chakra UI" title="Chakra UI" width="50" height="50" /> -->
+    <!-- <img src="./assets/mantine.svg" alt="Mantine" title="Mantine" width="48" height="48" />  -->
+    <!-- <img src="./assets/framer.svg" alt="Framer Motion" title="Framer Motion" width="48" height="48" /> -->
+    <!-- <img src="https://img.icons8.com/color/48/000000/figma--v1.png" alt="figma" title="Figma" width="50" height="50" /> -->
     <img src="https://img.icons8.com/color/48/000000/typescript.png" alt="Typescript" title="Typescript" width="50" height="50" />  
-    <img src="https://img.icons8.com/color/128/000000/javascript.png" alt="javascript" title="Javascript" width="50" height="50" />
+    <!-- <img src="https://img.icons8.com/color/128/000000/javascript.png" alt="javascript" title="Javascript" width="50" height="50" /> -->
     <img src="./assets/nodejs.png" alt="nodejs" title="Node Js" width="50" height="50" />    
     <img src="./assets/express.png" alt="express" title="Express Js" width="50" height="50"  />  
     <img src="https://img.icons8.com/color/48/000000/graphql.png" alt="Graphql" title="Graphql" width="50" height="50" />
-</div>
-
-<h4>Database & Streams</h4>
-
-<div style="display: flex; flex-wrap: wrap;">
     <img src="https://img.icons8.com/?size=48&id=38561&format=png" alt="Postgres" title="Postgres" width="50" height="50" />
-    <img src="./assets/mysql.svg" alt="MySQL" title="MySQL" width="50" height="50"/>      
+    <!-- <img src="./assets/mysql.svg" alt="MySQL" title="MySQL" width="50" height="50"/>       -->
      <img src="https://img.icons8.com/color/48/000000/redis.png" alt="Redis" title="Redis" width="50" height="50" />
-    <img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="mongodb" title="MongoDB" width="50" height="50" />
+    <!-- <img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="mongodb" title="MongoDB" width="50" height="50" /> -->
     <img src="https://img.icons8.com/color/48/000000/firebase.png" alt="firebase" title="Firebase" width="50" height="50" />
-    <img src="./assets/typeorm.png" alt="Typeorm" title="Typeorm" width="50" height="50"/>    
-    <img src="./assets/datagrip.png" alt="Datagrip" title="Datagrip" width="50" height="50"/>
-</div>
-
-<h4>CI/CD Centric</h4>
-
-<div style="display: flex; flex-wrap: wrap;">
+    <!-- <img src="./assets/typeorm.png" alt="Typeorm" title="Typeorm" width="50" height="50"/>     -->
+    <!-- <img src="./assets/datagrip.png" alt="Datagrip" title="Datagrip" width="50" height="50"/> -->
     <img src="https://img.icons8.com/color/48/000000/docker.png" alt="Docker" title="Docker" width="50" height="50" />
     <img src="./assets/dokku.png" alt="Dokku" title="Dokku" width="50" height="50" />    
-</div>
-
-<h4>Miscellaneous & Productivity Boost</h4>
-
-<div style="display: flex; flex-wrap: wrap;">
-    <img src="https://img.icons8.com/color/128/000000/python.png" alt="python" title="Python" width="50" height="50" />
-    <img src="https://img.icons8.com/color/128/000000/java-coffee-cup-logo--v1.png" alt="bash" title="Bash" width="50" height="50" />
-    <img src="https://img.icons8.com/color/48/000000/c-programming.png" title="C" alt="C" width="50" height="50" />
-    <img src="https://img.icons8.com/color/48/000000/html-5--v1.png" alt="html" title="Html" width="50" height="50"/>
+    <!-- <img src="https://img.icons8.com/color/128/000000/python.png" alt="python" title="Python" width="50" height="50" /> -->
+    <!-- <img src="https://img.icons8.com/color/128/000000/java-coffee-cup-logo--v1.png" alt="bash" title="Bash" width="50" height="50" /> -->
+    <!-- <img src="https://img.icons8.com/color/48/000000/c-programming.png" title="C" alt="C" width="50" height="50" /> -->
+    <!-- <img src="https://img.icons8.com/color/48/000000/html-5--v1.png" alt="html" title="Html" width="50" height="50"/> -->
     <img src="https://img.icons8.com/color/128/000000/git.png" alt="git" title="Git" width="50" height="50" />
     <img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png" alt="vs code" title="VS Code"  width="50" height="50"/>
-    <img src="https://img.icons8.com/dusk/48/000000/postman-api.png" alt="Postman" title="Postman"  width="50" height="50"/>
+    <!-- <img src="https://img.icons8.com/dusk/48/000000/postman-api.png" alt="Postman" title="Postman"  width="50" height="50"/> -->
     <img src="https://img.icons8.com/color/48/000000/console.png" alt="bash" title="Bash" width="50" height="50" /> 
     <img src="./assets/vim.png" alt="Vim" title="Vim" width="50" height="50" />   
 </div>
@@ -137,7 +111,8 @@
     <img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/000000/external-d3js-a-javascript-library-for-producing-dynamic-interactive-data-visualizations-in-web-browsers-logo-color-tal-revivo.png" alt="Data Driven Documents" title="Data Driven Documents" width="48" height="48" />
     <img src="./assets/solid.svg" alt="Solid" title="Solid Js" width="50" height="50"  />
     <img src="https://img.icons8.com/doodle/48/000000/svetle.png" alt="Svelte" title="Svelte" width="50" height="50" />     
-    <img src="./assets/jest.png" alt="Jest" title="Jest" width="48" height="48" />     <img src="./assets/storybook.svg" alt="Storybook" title="Storybook" width="48" height="48" />  
+    <img src="./assets/jest.png" alt="Jest" title="Jest" width="48" height="48" />    
+     <!-- <img src="./assets/storybook.svg" alt="Storybook" title="Storybook" width="48" height="48" />   -->
 </div>
 
 <br>
