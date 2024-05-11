@@ -18,13 +18,6 @@ jobs:
           repository: sahrohit/sahrohit
           path: pdf-repo
 
-      - name: Check out portfolio repo
-        uses: actions/checkout@v3
-        with:
-          repository: sahrohit/portfolio
-          token: ${{ secrets.ACCESS_TOKEN }}
-          path: portfolio-repo
-
       - name: Run the build process with Docker
         uses: addnab/docker-run-action@v3
         with:
@@ -33,8 +26,34 @@ jobs:
           run: |
             cd data
             pdflatex resume.tex
-            rm ${{ github.workspace }}/portfolio-repo/public/"Rohit's-Resume.pdf"
-            cp resume.pdf ${{ github.workspace }}/portfolio-repo/public/"Rohit's-Resume.pdf"
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: resume-pdf
+          path: pdf-repo/resume.pdf
+
+  commit:
+    name: Commit resume PDF
+    needs: compile
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out portfolio repo
+        uses: actions/checkout@v3
+        with:
+          repository: sahrohit/portfolio
+          token: ${{ secrets.ACCESS_TOKEN }}
+          path: portfolio-repo
+
+      - name: Download PDF artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: resume-pdf
+
+      - name: Move PDF to public directory
+        run: |
+          mv resume.pdf portfolio-repo/public/"Rohit's-Resume.pdf"
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
