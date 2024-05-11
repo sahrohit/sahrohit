@@ -1,0 +1,43 @@
+name: Build and Commit Resume
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - resume.tex
+
+jobs:
+  compile:
+    name: Compile resume PDF
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out PDF repo
+        uses: actions/checkout@v3
+        with:
+          repository: sahrohit/sahrohit
+          path: pdf-repo
+
+      - name: Check out portfolio repo
+        uses: actions/checkout@v3
+        with:
+          repository: sahrohit/portfolio
+          token: ${{ secrets.ACCESS_TOKEN }}
+          path: portfolio-repo
+
+      - name: Run the build process with Docker
+        uses: addnab/docker-run-action@v3
+        with:
+          image: thomasweise/docker-texlive-full:latest
+          options: -v ${{ github.workspace }}/pdf-repo:/data
+          run: |
+            cd data
+            pdflatex resume.tex
+            cp resume.pdf ../portfolio-repo/public/Rohit's-Resume.pdf
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Updated Resume PDF
+          branch: ${{ github.ref }}
+          repository: sahrohit/portfolio
