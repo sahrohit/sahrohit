@@ -40,11 +40,10 @@ jobs:
 
     steps:
       - name: Check out portfolio repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: sahrohit/portfolio
           token: ${{ secrets.ACCESS_TOKEN }}
-          path: portfolio-repo
 
       - name: Download PDF artifact
         uses: actions/download-artifact@v3
@@ -53,7 +52,7 @@ jobs:
 
       - name: Move PDF to public directory
         run: |
-          mv resume.pdf portfolio-repo/public/"Rohit's-Resume.pdf"
+          mv resume.pdf public/"Rohit's-Resume.pdf"
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
