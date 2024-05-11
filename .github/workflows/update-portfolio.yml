@@ -33,7 +33,8 @@ jobs:
           run: |
             cd data
             pdflatex resume.tex
-            cp resume.pdf ../portfolio-repo/public/"Rohit's-Resume.pdf"
+            rm ${{ github.workspace }}/portfolio-repo/public/"Rohit's-Resume.pdf"
+            cp resume.pdf ${{ github.workspace }}/portfolio-repo/public/"Rohit's-Resume.pdf"
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
