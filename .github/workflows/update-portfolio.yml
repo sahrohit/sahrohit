@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out PDF repo
+      - name: Check out Resume Repository
         uses: actions/checkout@v4
         with:
           repository: sahrohit/sahrohit
@@ -38,7 +38,7 @@ jobs:
           commit_message: Updated Resume PDF
 
   commit:
-    name: Commit resume PDF
+    name: Commit resume to Portfolio
     needs: compile
     runs-on: ubuntu-latest
 
