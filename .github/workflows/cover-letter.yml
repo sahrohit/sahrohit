@@ -100,7 +100,7 @@ jobs:
         with:
           commit_message: Added Cover Letter PDF
 
-      - name: Add comment to issue with link to file
+      - name: Add comment to issue with link to file and close the issue
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -108,11 +108,22 @@ jobs:
             const issue_number = context.issue.number;
             const repo = context.repo.repo;
             const owner = context.repo.owner;
-            const fileName = context.issue.title + '.pdf';
-            const url = `https://github.com/${owner}/${repo}/blob/main/cover-letter/generated/${context.issue.title}`;
+            const issue = await github.rest.issues.get({
+              owner,
+              repo,
+              issue_number
+            });
+            const fileName = issue.data.title + '.pdf';
+            const url = `https://github.com/${owner}/${repo}/blob/main/cover-letter/generated/${fileName}`;
             await github.rest.issues.createComment({
               owner,
               repo,
               issue_number,
               body: `Your cover letter has been generated: [${fileName}](${url})`
+            });
+            await github.rest.issues.update({
+              owner,
+              repo,
+              issue_number,
+              state: 'closed'
             });
