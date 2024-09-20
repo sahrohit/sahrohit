@@ -77,9 +77,23 @@ jobs:
         with:
           name: cover-letter
 
+      - name: Get issue description
+        id: issue_body_again
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const issue = await github.rest.issues.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number
+            });
+
+            return issue.data.title;
+
       - name: Move PDF to public directory
         run: |
-          mv cover-letter.pdf cover-letter/generated/"${{ env.FILE_NAME }}"
+          mv cover-letter.pdf cover-letter/generated/${{ steps.issue_body_again.outputs.result }}.pdf
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
@@ -94,8 +108,8 @@ jobs:
             const issue_number = context.issue.number;
             const repo = context.repo.repo;
             const owner = context.repo.owner;
-            const fileName = "${{ env.FILE_NAME }}";
-            const url = `https://github.com/${owner}/${repo}/blob/main/cover-letter/generated/${fileName}`;
+            const fileName = context.issue.title + '.pdf';
+            const url = `https://github.com/${owner}/${repo}/blob/main/cover-letter/generated/${context.issue.title}`;
             await github.rest.issues.createComment({
               owner,
               repo,
