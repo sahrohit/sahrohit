@@ -32,6 +32,9 @@ jobs:
           # Replace escaped line breaks with actual line breaks
           ISSUE_BODY=$(echo "$ISSUE_BODY" | tr '\r\n' '\n')
 
+          # Extract content up to the first occurrence of \r\t
+          ISSUE_BODY=$(echo "$ISSUE_BODY" | awk '/\\r\\t/{exit} {print}')
+
           VARS=("Company Street Address" "Company Zip Code" "Company City" "Name" "Position" "Offer Source" "Company Name")
           for var in "${VARS[@]}"; do
             value=$(echo "$ISSUE_BODY" | grep -oP "(?<=\[$var\]: ).*")
@@ -48,9 +51,9 @@ jobs:
               cp "$file" "${file}.tmp"
               while IFS='=' read -r key value; do
                 if [ -z "$value" ]; then
-                  echo "Warning: Value for $key is empty. Skipping replacement."
+              echo "Warning: Value for $key is empty. Skipping replacement."
                 else
-                  sed -i "s/\[$key\]/$value/g" "${file}.tmp"
+              sed -i "s|\[$key\]|$value|g" "${file}.tmp"
                 fi
               done < <(env)
               mv "${file}.tmp" "$file"
