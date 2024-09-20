@@ -1,0 +1,86 @@
+name: Generate Cover Letter on Issue Creation
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  generate_cover_letter:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Get issue description
+        id: issue_body
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const issue = await github.rest.issues.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number
+            });
+            return issue.data.body;
+
+      - name: Extract variables from issue description
+        id: extract_vars
+        run: |
+          ISSUE_BODY="${{ steps.issue_body.outputs.result }}"
+          VARS=("Company Street Address" "Company Zip Code" "Company City" "Name" "Position" "Offer Source" "Company Name")
+          for var in "${VARS[@]}"; do
+            value=$(echo "$ISSUE_BODY" | grep -oP "(?<=\[$var\]:\s*).*" | tr -d '[:space:]')
+            if [ ! -z "$value" ]; then
+              echo "$var=$value" >> $GITHUB_ENV
+            fi
+          done
+
+      - name: Replace variables in template files
+        run: |
+          FILES=("cover-letter.tex" "cover-letter-content.tex")
+          for file in "${FILES[@]}"; do
+            if [ -f "$file" ]; then
+              cp "$file" "${file}.tmp"
+              while IFS='=' read -r key value; do
+                if [ -z "$value" ]; then
+                  echo "Warning: Value for $key is empty. Skipping replacement."
+                else
+                  sed -i "s/\[$key\]/$value/g" "${file}.tmp"
+                fi
+              done < <(env)
+              mv "${file}.tmp" "$file"
+            else
+              echo "Error: $file not found"
+              exit 1
+            fi
+          done
+
+      - name: Compile LaTeX to PDF
+        uses: addnab/docker-run-action@v3
+        with:
+          image: thomasweise/docker-texlive-full:latest
+          options: -v ${{ github.workspace }}:/data
+          run: |
+            cd /data
+            pdflatex cover-letter.tex
+
+      - name: Upload cover letter PDF as an artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: cover-letter
+          path: cover-letter.pdf
+
+      - name: Comment on issue with artifact link
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const artifactUrl = `https://github.com/${{ github.repository }}/suites/${{ github.run_id }}/artifacts`;
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `Here is your generated cover letter: [Download PDF](${artifactUrl})`
+            });
