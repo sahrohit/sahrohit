@@ -28,7 +28,7 @@ jobs:
       - name: Extract variables from issue description
         id: extract_vars
         run: |
-          ISSUE_BODY="${{ steps.issue_body.outputs.result }}"
+          ISSUE_BODY=${{ steps.issue_body.outputs.result }}
           # Replace escaped line breaks with actual line breaks
           ISSUE_BODY=$(echo "$ISSUE_BODY" | tr '\r\n' '\n')
 
