@@ -31,8 +31,8 @@ jobs:
       - name: Extract variables from issue description & Replace variables in template files
         id: extract_vars
         run: |
-          ISSUE_BODY=${{ steps.issue_details.outputs.body }}
-          ISSUE_TITLE=${{ steps.issue_details.outputs.title }}
+          ISSUE_BODY=${{ steps.issue_body.outputs.result.body }}
+          ISSUE_TITLE=${{ steps.issue_body.outputs.result.title }}
           FILE_NAME=$(echo "${ISSUE_TITLE// /_}.pdf")
 
           declare -A map
@@ -57,7 +57,7 @@ jobs:
           run: |
             cd /data
             pdflatex cover-letter.tex
-            mv cover-letter.pdf "${FILE_NAME}.pdf"
+            mv cover-letter.pdf "${FILE_NAME}"
 
       - name: Upload cover letter PDF as an artifact
         uses: actions/upload-artifact@v4
