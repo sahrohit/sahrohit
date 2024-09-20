@@ -51,21 +51,22 @@ jobs:
             cd /data
             pdflatex cover-letter.tex
 
-      - name: Upload cover letter PDF as an artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: cover-letter
-          path: cover-letter.pdf
+      - name: Convert PDF to base64
+        id: convert_pdf
+        run: |
+          base64 -w 0 cover-letter.pdf > cover-letter-base64.txt
 
-      - name: Comment on issue with artifact link
+      - name: Comment on issue with base64 PDF link
         uses: actions/github-script@v6
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const artifactUrl = `https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/actions/runs/${{ github.run_id }}`;
+            const fs = require('fs');
+            const base64PDF = fs.readFileSync('cover-letter-base64.txt', 'utf8');
+            const downloadLink = `data:application/pdf;base64,${base64PDF}`;
             github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: `Here is your generated cover letter: [Download PDF](${artifactUrl})`
+              body: `Here is your generated cover letter: [Download PDF](${downloadLink})`
             });
