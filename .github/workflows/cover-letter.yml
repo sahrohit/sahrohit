@@ -24,8 +24,6 @@ jobs:
               issue_number: context.issue.number
             });
 
-            echo `FILE_NAME=${issue.data.title}.pdf` >> $GITHUB_ENV
-
             return issue.data.body;
 
       - name: Extract variables from issue description & Replace variables in template files
@@ -39,6 +37,8 @@ jobs:
               value=$(echo "$value" | xargs)  # Trim leading and trailing spaces
               map["$key"]="${value}"  
           done <<< "${ISSUE_BODY//\\r\\n/$'\n'}"
+
+          echo `FILE_NAME=${map["Company Name"]}.pdf` >> $GITHUB_ENV
 
           for key in "${!map[@]}"; do
               sed -i "s|\[$key\]|${map[$key]}|g" cover-letter.tex
