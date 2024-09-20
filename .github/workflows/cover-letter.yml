@@ -5,7 +5,6 @@ on:
 
 jobs:
   generate_cover_letter:
-    name: Generate Cover Letter
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -30,6 +29,9 @@ jobs:
         id: extract_vars
         run: |
           ISSUE_BODY="${{ steps.issue_body.outputs.result }}"
+          # Replace escaped line breaks with actual line breaks
+          ISSUE_BODY=$(echo "$ISSUE_BODY" | tr '\r\n' '\n')
+
           VARS=("Company Street Address" "Company Zip Code" "Company City" "Name" "Position" "Offer Source" "Company Name")
           for var in "${VARS[@]}"; do
             value=$(echo "$ISSUE_BODY" | grep -oP "(?<=\[$var\]: ).*")
