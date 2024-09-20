@@ -12,8 +12,8 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Get issue description
-        id: issue_body
+      - name: Get issue details
+        id: issue_details
         uses: actions/github-script@v6
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
@@ -23,12 +23,17 @@ jobs:
               repo: context.repo.repo,
               issue_number: context.issue.number
             });
-            return issue.data.body;
+            return {
+              body: issue.data.body,
+              title: issue.data.title
+            };
 
       - name: Extract variables from issue description & Replace variables in template files
         id: extract_vars
         run: |
-          ISSUE_BODY=${{ steps.issue_body.outputs.result }}
+          ISSUE_BODY=${{ steps.issue_details.outputs.body }}
+          ISSUE_TITLE=${{ steps.issue_details.outputs.title }}
+          FILE_NAME=$(echo "${ISSUE_TITLE// /_}.pdf")
 
           declare -A map
           while IFS=':' read -r key value; do
@@ -42,6 +47,8 @@ jobs:
               sed -i "s|\[$key\]|${map[$key]}|g" cover-letter-content.tex
           done
 
+          echo "FILE_NAME=${FILE_NAME}" >> $GITHUB_ENV
+
       - name: Compile LaTeX to PDF
         uses: addnab/docker-run-action@v3
         with:
@@ -50,23 +57,53 @@ jobs:
           run: |
             cd /data
             pdflatex cover-letter.tex
+            mv cover-letter.pdf "${FILE_NAME}.pdf"
 
-      - name: Convert PDF to base64
-        id: convert_pdf
+      - name: Upload cover letter PDF as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cover-letter
+          path: ${{ env.FILE_NAME }}
+
+  commit:
+    name: Commit resume to Profile
+    needs: generate_cover_letter
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out profile repo
+        uses: actions/checkout@v4
+        with:
+          repository: sahrohit/sahrohit
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Download PDF artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: cover-letter
+
+      - name: Move PDF to public directory
         run: |
-          base64 -w 0 cover-letter.pdf > cover-letter-base64.txt
+          mv ${{ env.FILE_NAME }} cover-letter/generated/"${{ env.FILE_NAME }}"
 
-      - name: Comment on issue with base64 PDF link
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Updated Resume PDF
+
+      - name: Add comment to issue with link to file
         uses: actions/github-script@v6
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const fs = require('fs');
-            const base64PDF = fs.readFileSync('cover-letter-base64.txt', 'utf8');
-            const downloadLink = `data:application/pdf;base64,${base64PDF}`;
-            github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: `Here is your generated cover letter: [Download PDF](${downloadLink})`
+            const issue_number = context.issue.number;
+            const repo = context.repo.repo;
+            const owner = context.repo.owner;
+            const fileName = "${{ env.FILE_NAME }}";
+            const url = `https://github.com/${owner}/${repo}/blob/main/cover-letter/generated/${fileName}`;
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number,
+              body: `Your cover letter has been generated: [${fileName}](${url})`
             });
