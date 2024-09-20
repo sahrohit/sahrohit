@@ -113,7 +113,7 @@ jobs:
               repo,
               issue_number
             });
-            const fileName = issue.data.title.replace(/ /g, '%20') + '.pdf';
+            const fileName = encodeURIComponent(issue.data.title) + '.pdf';
             const url = `https://github.com/${owner}/${repo}/blob/main/cover-letter/generated/${fileName}`;
             await github.rest.issues.createComment({
               owner,
