@@ -119,7 +119,7 @@ jobs:
               owner,
               repo,
               issue_number,
-              body: `Your cover letter has been generated: [${fileName}](${url})`
+              body: `Your cover letter has been generated: <a href="${url}">${fileName}</a> :tada:`
             });
             await github.rest.issues.update({
               owner,
