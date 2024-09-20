@@ -28,16 +28,15 @@ jobs:
       - name: Extract variables from issue description
         id: extract_vars
         run: |
-          ISSUE_BODY="${{ steps.issue_body.outputs.result }}"
-          # Replace escaped line breaks with actual line breaks
-          ISSUE_BODY=$(echo "$ISSUE_BODY" | tr '\r\n' '\n')
+          ISSUE_BODY=${{ steps.issue_body.outputs.result }}
 
-          VARS=("Company Name" "Company Street Address" "Company Zip Code" "Company City" "Name" "Position" "Offer Source")
-          for var in "${VARS[@]}"; do
-            value=$(echo "$ISSUE_BODY" | grep -oP "(?<=\[$var\]: ).*")
-            if [ ! -z "$value" ]; then
-              echo "$var=\"$value\"" >> $GITHUB_ENV
-            fi
+          declare -A map
+          while IFS=':' read -r key value; do
+          map["$key"]="${value}"
+          done <<< "${ISSUE_BODY//\\r\\n/$'\n'}"
+
+          for key in "${!map[@]}"; do
+          echo "$key=${map[$key]}" >> $GITHUB_ENV
           done
 
       - name: Replace variables in template files
