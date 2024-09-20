@@ -5,6 +5,7 @@ on:
 
 jobs:
   generate_cover_letter:
+    name: Generate Cover Letter
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -31,9 +32,9 @@ jobs:
           ISSUE_BODY="${{ steps.issue_body.outputs.result }}"
           VARS=("Company Street Address" "Company Zip Code" "Company City" "Name" "Position" "Offer Source" "Company Name")
           for var in "${VARS[@]}"; do
-            value=$(echo "$ISSUE_BODY" | grep -oP "(?<=\[$var\]:\s*).*" | tr -d '[:space:]')
+            value=$(echo "$ISSUE_BODY" | grep -oP "(?<=\[$var\]: ).*")
             if [ ! -z "$value" ]; then
-              echo "$var=$value" >> $GITHUB_ENV
+              echo "$var=\"$value\"" >> $GITHUB_ENV
             fi
           done
 
