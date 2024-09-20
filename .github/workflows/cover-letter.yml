@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cover-letter
-          path: ${{ env.FILE_NAME }}
+          path: cover-letter.pdf
 
   commit:
     name: Commit resume to Profile
@@ -79,7 +79,7 @@ jobs:
 
       - name: Move PDF to public directory
         run: |
-          mv ${{ env.FILE_NAME }} cover-letter/generated/"${{ env.FILE_NAME }}"
+          mv cover-letter.pdf cover-letter/generated/"${{ env.FILE_NAME }}"
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
