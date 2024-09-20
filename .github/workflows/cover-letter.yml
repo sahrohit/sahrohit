@@ -28,14 +28,11 @@ jobs:
       - name: Extract variables from issue description
         id: extract_vars
         run: |
-          ISSUE_BODY=${{ steps.issue_body.outputs.result }}
+          ISSUE_BODY="${{ steps.issue_body.outputs.result }}"
           # Replace escaped line breaks with actual line breaks
           ISSUE_BODY=$(echo "$ISSUE_BODY" | tr '\r\n' '\n')
 
-          # Extract content up to the first occurrence of \r\t
-          ISSUE_BODY=$(echo "$ISSUE_BODY" | awk '/\\r\\t/{exit} {print}')
-
-          VARS=("Company Street Address" "Company Zip Code" "Company City" "Name" "Position" "Offer Source" "Company Name")
+          VARS=("Company Name" "Company Street Address" "Company Zip Code" "Company City" "Name" "Position" "Offer Source")
           for var in "${VARS[@]}"; do
             value=$(echo "$ISSUE_BODY" | grep -oP "(?<=\[$var\]: ).*")
             if [ ! -z "$value" ]; then
@@ -73,7 +70,7 @@ jobs:
             pdflatex cover-letter.tex
 
       - name: Upload cover letter PDF as an artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cover-letter
           path: cover-letter.pdf
@@ -83,7 +80,7 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const artifactUrl = `https://github.com/${{ github.repository }}/suites/${{ github.run_id }}/artifacts`;
+            const artifactUrl = `https://github.com/{{context.repo.owner}}/{{context.repo.repo}}/actions/runs/{{context.runId}}`;
             github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
