@@ -25,38 +25,21 @@ jobs:
             });
             return issue.data.body;
 
-      - name: Extract variables from issue description
+      - name: Extract variables from issue description & Replace variables in template files
         id: extract_vars
         run: |
           ISSUE_BODY=${{ steps.issue_body.outputs.result }}
 
           declare -A map
           while IFS=':' read -r key value; do
-          map["$key"]="${value}"
+              key=$(echo "$key" | tr -d '[]')
+              value=$(echo "$value" | xargs)  # Trim leading and trailing spaces
+              map["$key"]="${value}"  
           done <<< "${ISSUE_BODY//\\r\\n/$'\n'}"
 
           for key in "${!map[@]}"; do
-          echo "$key=${map[$key]}" >> $GITHUB_ENV
-          done
-
-      - name: Replace variables in template files
-        run: |
-          FILES=("cover-letter.tex" "cover-letter-content.tex")
-          for file in "${FILES[@]}"; do
-            if [ -f "$file" ]; then
-              cp "$file" "${file}.tmp"
-              while IFS='=' read -r key value; do
-                if [ -z "$value" ]; then
-              echo "Warning: Value for $key is empty. Skipping replacement."
-                else
-              sed -i "s|\[$key\]|$value|g" "${file}.tmp"
-                fi
-              done < <(env)
-              mv "${file}.tmp" "$file"
-            else
-              echo "Error: $file not found"
-              exit 1
-            fi
+              sed -i "s|\[$key\]|${map[$key]}|g" cover-letter.tex
+              sed -i "s|\[$key\]|${map[$key]}|g" cover-letter-content.tex
           done
 
       - name: Compile LaTeX to PDF
@@ -79,7 +62,7 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const artifactUrl = `https://github.com/{{context.repo.owner}}/{{context.repo.repo}}/actions/runs/{{context.runId}}`;
+            const artifactUrl = `https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/actions/runs/${{ github.run_id }}`;
             github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
