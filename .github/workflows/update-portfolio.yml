@@ -2,7 +2,7 @@ name: Build and Commit Resume
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - resume.tex
 
