@@ -27,7 +27,7 @@ jobs:
             pdflatex resume.tex
 
       - name: Upload PDF artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: resume-pdf
           path: resume.pdf
@@ -50,7 +50,7 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Download PDF artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: resume-pdf
 
