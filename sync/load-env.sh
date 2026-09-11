@@ -9,7 +9,9 @@
 set -euo pipefail
 
 ENV_FILE="${ENV_FILE:-.env}"
-[[ -f "$ENV_FILE" ]] || { printf 'ERROR: %s not found\n' "$ENV_FILE" >&2; exit 1; }
+
+if [[ -f "$ENV_FILE" ]]; then
+  printf 'Loading configuration from %s...\n' "$ENV_FILE"
 
 set -a
 # shellcheck disable=SC1090
@@ -38,3 +40,15 @@ for key in $keys; do
   fi
   printf '  %s=%s\n' "$key" "$(printf '%s' "$value" | tr '\n' ' ')"
 done
+else
+  printf 'No %s file found; using environment variables and GitHub Secrets.\n' "$ENV_FILE"
+  if [[ -n "${REPOS_SECRET:-}" ]]; then
+    if [[ -n "${GITHUB_ENV:-}" ]]; then
+      {
+        printf 'REPOS<<__SYNC_ENV__\n'
+        printf '%s\n' "$REPOS_SECRET"
+        printf '__SYNC_ENV__\n'
+      } >> "$GITHUB_ENV"
+    fi
+  fi
+fi

@@ -34,6 +34,21 @@ concurrency:
   group: sync
   cancel-in-progress: false
 
+env:
+  SOURCE_OWNER: ${{ secrets.SOURCE_OWNER || vars.SOURCE_OWNER}}
+  DEST_OWNER: ${{ secrets.DEST_OWNER || vars.DEST_OWNER }}
+  REPOS: ${{ secrets.REPOS || vars.REPOS }}
+  NEW_NAME: ${{ secrets.NEW_NAME || vars.NEW_NAME }}
+  NEW_EMAIL: ${{ secrets.NEW_EMAIL || vars.NEW_EMAIL }}
+  OLD_NAMES: ${{ secrets.OLD_NAMES || vars.OLD_NAMES }}
+  OLD_EMAILS: ${{ secrets.OLD_EMAILS || vars.OLD_EMAILS }}
+  KEEP_EMAILS: ${{ secrets.KEEP_EMAILS || vars.KEEP_EMAILS }}
+  KEEP_NAME_PATTERNS: ${{ secrets.KEEP_NAME_PATTERNS || vars.KEEP_NAME_PATTERNS }}
+  ANON_OTHERS: ${{ secrets.ANON_OTHERS || vars.ANON_OTHERS }}
+  ANON_EMAIL_DOMAINS: ${{ secrets.ANON_EMAIL_DOMAINS || vars.ANON_EMAIL_DOMAINS }}
+  FORBIDDEN: ${{ secrets.FORBIDDEN || vars.FORBIDDEN }}
+  STRICT_MESSAGES: ${{ secrets.STRICT_MESSAGES || vars.STRICT_MESSAGES }}
+
 jobs:
   prepare:
     runs-on: ubuntu-latest
