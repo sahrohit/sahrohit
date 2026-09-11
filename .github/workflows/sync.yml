@@ -37,7 +37,7 @@ concurrency:
 env:
   SOURCE_OWNER: ${{ secrets.SOURCE_OWNER || vars.SOURCE_OWNER}}
   DEST_OWNER: ${{ secrets.DEST_OWNER || vars.DEST_OWNER }}
-  REPOS: ${{ secrets.REPOS || vars.REPOS }}
+  REPOS: ${{ vars.REPOS || secrets.REPOS }}
   NEW_NAME: ${{ secrets.NEW_NAME || vars.NEW_NAME }}
   NEW_EMAIL: ${{ secrets.NEW_EMAIL || vars.NEW_EMAIL }}
   OLD_NAMES: ${{ secrets.OLD_NAMES || vars.OLD_NAMES }}
