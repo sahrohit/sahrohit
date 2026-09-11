@@ -46,7 +46,7 @@ jobs:
       - name: Load configuration
         env:
           REPOS_SECRET: ${{ secrets.REPOS }}
-        run: sync/load-env.sh
+        run: bash sync/load-env.sh
 
       - name: Build repo matrix
         id: build
@@ -103,7 +103,7 @@ jobs:
       - uses: actions/checkout@v5
 
       - name: Load configuration
-        run: sync/load-env.sh
+        run: bash sync/load-env.sh
 
       - uses: actions/setup-python@v5
         with:
@@ -131,7 +131,7 @@ jobs:
         run: |
           set -euo pipefail
           export RESULT_FILE="results/$(echo "$SOURCE" | tr '/' '-').json"
-          sync/sync-repo.sh
+          bash sync/sync-repo.sh
 
       - name: Record failure
         if: failure()
