@@ -1,149 +1,99 @@
-<h1>Hi 👋, I'm Rohit </h1>
+# Hi 👋, I'm Rohit
 
-<h3>Graduate Computer Science student focusing on Web Optimization and Accessibility. You can checkout my <a href="https://sahrohit.com.np">Portfolio (sahrohit.com.np)</a>, <a href="https://sahrohit.netlify.app">Blog (sahrohit.netlify.app)</a> and <a href="./resume.pdf">Resume</a> here.</h3>
+<h3>Graduate Computer Science Student at SIUE &bull; Software Engineer &bull; Full-Stack & AI Systems</h3>
 
-<br>
+<p>
+Graduate Computer Science student and Teaching Assistant at <b>Southern Illinois University Edwardsville</b>, and Software Engineer at <b>Technimus</b>. Focused on building high-performance, multi-tenant scalable backends, responsive full-stack applications, and researching LLM fine-tuning & AI integration.
+</p>
+
+<p>
+Check out my <a href="https://sahrohit.com.np"><b>Portfolio (sahrohit.com.np)</b></a> &bull; <a href="https://sahrohit.netlify.app"><b>Blog (sahrohit.netlify.app)</b></a> &bull; <a href="./resume.pdf"><b>Resume</b></a>
+</p>
 
 <p align="center">
     <a href="https://twitter.com/sah_rohite">
-        <img alt="followers" title="Follow me on Twitter" src="https://custom-icon-badges.herokuapp.com/twitter/follow/sah_rohite?color=236ad3&labelColor=1155ba&label=Twitter&logo=twitter&logoColor=white&style=for-the-badge"/>
+        <img alt="Twitter" title="Follow me on Twitter" src="https://custom-icon-badges.herokuapp.com/twitter/follow/sah_rohite?color=236ad3&labelColor=1155ba&label=Twitter&logo=twitter&logoColor=white&style=for-the-badge"/>
     </a>
     <a href="https://github.com/sahrohit">
-        <img alt="followers" title="Follow me on Github" src="https://custom-icon-badges.herokuapp.com/github/followers/sahrohit?color=363636&labelColor=1D1E1F&style=for-the-badge&logo=github&label=Github&logoColor=white"/>
+        <img alt="GitHub" title="Follow me on GitHub" src="https://custom-icon-badges.herokuapp.com/github/followers/sahrohit?color=363636&labelColor=1D1E1F&style=for-the-badge&logo=github&label=Github&logoColor=white"/>
     </a>
     <a href="https://linkedin.com/in/sahrohit">
-        <img alt="followers" title="Connect with me on Linkedin" src="https://img.shields.io/badge/Linkedin-blue?logo=linkedin&style=for-the-badge"/>
+        <img alt="LinkedIn" title="Connect with me on LinkedIn" src="https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&style=for-the-badge"/>
     </a>
     <a href="https://stackoverflow.com/users/13238555/rohit-kumar-sah">
-        <img alt="followers" title="Stack Overflow" src="https://img.shields.io/badge/-Stack%20Overflow-FE7A16?logo=stackoverflow&style=for-the-badge&logoColor=white"/>
+        <img alt="Stack Overflow" title="Stack Overflow" src="https://img.shields.io/badge/-Stack%20Overflow-FE7A16?logo=stackoverflow&style=for-the-badge&logoColor=white"/>
     </a>
-    <a href="https://goo.gl/maps/cjJZSJ2zEgt7SJ2G7">
-        <img alt="followers" title="Where I Live" src="https://custom-icon-badges.herokuapp.com/badge/Kathmandu-Nepal-purple?style=for-the-badge&logo=location&logoColor=white"/>
+    <a href="https://maps.google.com/?q=Edwardsville,IL">
+        <img alt="Location" title="Where I Live" src="https://img.shields.io/badge/Location-Maryville%20%2F%20IL-purple?style=for-the-badge&logo=google-maps&logoColor=white"/>
     </a>
 </p>
 
-<h3>Languages and Tools</h3>
+---
 
-<div style="display: flex; flex-wrap: wrap;">
-    <img src="https://img.icons8.com/color/128/000000/react-native.png" alt="react" title="React Js" width="50" height="50" />
-    <img src="./assets/nextjs.svg" alt="next" title="Next Js" width="48" height="48" />     
-    <img src="./assets/reactquery.svg" alt="React Query" title="React Query" width="48" height="48" /> 
-    <!-- <img src="https://img.icons8.com/color/48/000000/apollo.png" alt="Apollo" title="Apollo" width="50" height="50" /> -->
-    <!-- <img src="./assets/urql.svg" alt="Urql" title="Urql" width="48" height="48" />  -->
-    <!-- <img src="https://img.icons8.com/color/48/000000/redux.png" alt="Redux" title="Redux" width="50" height="50" /> -->
-    <!-- <img src="https://img.icons8.com/color/48/000000/css3.png" alt="css" title="CSS" width="50" height="50" />     -->
-    <img src="./assets/tailwindcss.svg" alt="TailwindCSS" title="TailwindCSS" width="48" height="48" />
-    <!-- <img src="https://img.icons8.com/color/128/000000/bootstrap.png" alt="bootstrap" title="Bootstrap" width="50" height="50" /> -->
-    <!-- <img src="https://img.icons8.com/color/48/000000/chakra-ui.png" alt="Chakra UI" title="Chakra UI" width="50" height="50" /> -->
-    <!-- <img src="./assets/mantine.svg" alt="Mantine" title="Mantine" width="48" height="48" />  -->
-    <!-- <img src="./assets/framer.svg" alt="Framer Motion" title="Framer Motion" width="48" height="48" /> -->
-    <!-- <img src="https://img.icons8.com/color/48/000000/figma--v1.png" alt="figma" title="Figma" width="50" height="50" /> -->
-    <img src="https://img.icons8.com/color/48/000000/typescript.png" alt="Typescript" title="Typescript" width="50" height="50" />  
-    <!-- <img src="https://img.icons8.com/color/128/000000/javascript.png" alt="javascript" title="Javascript" width="50" height="50" /> -->
-    <img src="./assets/nodejs.png" alt="nodejs" title="Node Js" width="50" height="50" />    
-    <img src="./assets/express.png" alt="express" title="Express Js" width="50" height="50"  />  
-    <img src="https://img.icons8.com/color/48/000000/graphql.png" alt="Graphql" title="Graphql" width="50" height="50" />
-    <img src="https://img.icons8.com/?size=48&id=38561&format=png" alt="Postgres" title="Postgres" width="50" height="50" />
-    <!-- <img src="./assets/mysql.svg" alt="MySQL" title="MySQL" width="50" height="50"/>       -->
-     <img src="https://img.icons8.com/color/48/000000/redis.png" alt="Redis" title="Redis" width="50" height="50" />
-    <!-- <img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="mongodb" title="MongoDB" width="50" height="50" /> -->
-    <!-- <img src="https://img.icons8.com/color/48/000000/firebase.png" alt="firebase" title="Firebase" width="50" height="50" /> -->
-    <!-- <img src="./assets/typeorm.png" alt="Typeorm" title="Typeorm" width="50" height="50"/>     -->
-    <!-- <img src="./assets/datagrip.png" alt="Datagrip" title="Datagrip" width="50" height="50"/> -->
-    <img src="https://img.icons8.com/color/48/000000/docker.png" alt="Docker" title="Docker" width="50" height="50" />
-    <!-- <img src="./assets/dokku.png" alt="Dokku" title="Dokku" width="50" height="50" />     -->
-    <!-- <img src="https://img.icons8.com/color/128/000000/python.png" alt="python" title="Python" width="50" height="50" /> -->
-    <!-- <img src="https://img.icons8.com/color/128/000000/java-coffee-cup-logo--v1.png" alt="bash" title="Bash" width="50" height="50" /> -->
-    <!-- <img src="https://img.icons8.com/color/48/000000/c-programming.png" title="C" alt="C" width="50" height="50" /> -->
-    <!-- <img src="https://img.icons8.com/color/48/000000/html-5--v1.png" alt="html" title="Html" width="50" height="50"/> -->
-    <img src="https://img.icons8.com/color/128/000000/git.png" alt="git" title="Git" width="50" height="50" />
-    <img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png" alt="vs code" title="VS Code"  width="50" height="50"/>
-    <!-- <img src="https://img.icons8.com/dusk/48/000000/postman-api.png" alt="Postman" title="Postman"  width="50" height="50"/> -->
-    <img src="https://img.icons8.com/color/48/000000/console.png" alt="bash" title="Bash" width="50" height="50" /> 
-    <img src="./assets/vim.png" alt="Vim" title="Vim" width="50" height="50" />   
+### 🛠️ Languages and Technologies
+
+#### Languages
+<div style="display: flex; flex-wrap: wrap; gap: 8px;">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="TypeScript" title="TypeScript" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" title="Python" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg" alt="Go" title="Go" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java" title="Java" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bash/bash-original.svg" alt="Bash" title="Bash" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" title="HTML5" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3" title="CSS3" width="48" height="48" />
 </div>
 
-<!-- <h3>Language and Tools</h3>
-
-<div style="display: flex; flex-wrap: wrap;">
-<img src="https://img.icons8.com/color/128/000000/react-native.png" alt="react" title="React Js" width="50" height="50" />
-    <img src="./assets/nextjs.svg" alt="next" title="Next Js" width="48" height="48" />
-    <img src="./assets/reactquery.svg" alt="React Query" title="React Query" width="48" height="48" />
-    <img src="https://img.icons8.com/color/48/000000/apollo.png" alt="Apollo" title="Apollo" width="50" height="50" />
-    <img src="./assets/urql.svg" alt="Urql" title="Urql" width="48" height="48" />
-    <img src="https://img.icons8.com/color/48/000000/redux.png" alt="Redux" title="Redux" width="50" height="50" />
+#### Frontend & Full-Stack Development
+<div style="display: flex; flex-wrap: wrap; gap: 8px;">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" title="React" width="48" height="48" />
+    <img src="./assets/nextjs.svg" alt="Next.js" title="Next.js" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/astro/astro-original.svg" alt="Astro" title="Astro" width="48" height="48" />
     <img src="./assets/tailwindcss.svg" alt="TailwindCSS" title="TailwindCSS" width="48" height="48" />
-    <img src="https://img.icons8.com/color/128/000000/bootstrap.png" alt="bootstrap" title="Bootstrap" width="50" height="50" />
-    <img src="https://img.icons8.com/color/48/000000/css3.png" alt="css" title="CSS" width="50" height="50" />
-    <img src="https://img.icons8.com/color/48/000000/chakra-ui.png" alt="Chakra UI" title="Chakra UI" width="50" height="50" />
-    <img src="./assets/mantine.svg" alt="Mantine" title="Mantine" width="48" height="48" />
+    <img src="./assets/reactquery.svg" alt="React Query / TanStack" title="React Query" width="48" height="48" />
     <img src="./assets/framer.svg" alt="Framer Motion" title="Framer Motion" width="48" height="48" />
-    <img src="https://img.icons8.com/color/48/000000/figma--v1.png" alt="figma" title="Figma" width="50" height="50" />
-     <img src="https://img.icons8.com/color/48/000000/typescript.png" alt="Typescript" title="Typescript" width="50" height="50" />
-    <img src="https://img.icons8.com/color/128/000000/javascript.png" alt="javascript" title="Javascript" width="50" height="50" />
-    <img src="./assets/nodejs.png" alt="nodejs" title="Node Js" width="50" height="50" />
-    <img src="./assets/express.png" alt="express" title="Express Js" width="50" height="50"  />
-    <img src="https://img.icons8.com/color/48/000000/graphql.png" alt="Graphql" title="Graphql" width="50" height="50" />
-    <img src="https://img.icons8.com/color/128/000000/postgresql.png" alt="postgresql" title="PostgreSQL" width="50" height="50" />
-    <img src="./assets/mysql.svg" alt="MySQL" title="MySQL" width="50" height="50"/>
-    <img src="https://img.icons8.com/color/48/000000/redis.png" alt="Redis" title="Redis" width="50" height="50" />
-    <img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="mongodb" title="MongoDB" width="50" height="50" />
-    <img src="https://img.icons8.com/color/48/000000/firebase.png" alt="firebase" title="Firebase" width="50" height="50" />
-    <img src="./assets/typeorm.png" alt="Typeorm" title="Typeorm" width="50" height="50"/>
-    <img src="./assets/datagrip.png" alt="Datagrip" title="Datagrip" width="50" height="50"/>
-    <img src="https://img.icons8.com/color/48/000000/docker.png" alt="Docker" title="Docker" width="50" height="50" />
-    <img src="./assets/dokku.png" alt="Dokku" title="Dokku" width="50" height="50" />
-    <img src="https://img.icons8.com/color/128/000000/python.png" alt="python" title="Python" width="50" height="50" />
-    <img src="https://img.icons8.com/color/128/000000/java-coffee-cup-logo--v1.png" alt="bash" title="Bash" width="50" height="50" />
-    <img src="https://img.icons8.com/color/48/000000/c-programming.png" title="C" alt="C" width="50" height="50" />
-    <img src="https://img.icons8.com/color/48/000000/html-5--v1.png" alt="html" title="Html" width="50" height="50"/>
-    <img src="https://img.icons8.com/color/128/000000/git.png" alt="git" title="Git" width="50" height="50" />
-    <img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png" alt="vs code" title="VS Code"  width="50" height="50"/>
-    <img src="https://img.icons8.com/dusk/48/000000/postman-api.png" alt="Postman" title="Postman"  width="50" height="50"/>
-    <img src="https://img.icons8.com/color/48/000000/console.png" alt="bash" title="Bash" width="50" height="50" />
-    <img src="./assets/vim.png" alt="Vim" title="Vim" width="50" height="50" />
-
-</div> -->
-
-<h3>What I am learning ?</h3>
-<div style="display: flex; flex-wrap: wrap;">
-    <img src="https://img.icons8.com/color/48/000000/golang.png" alt="Golang" title="Golang" width="50" height="50" />
-    <img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/000000/external-d3js-a-javascript-library-for-producing-dynamic-interactive-data-visualizations-in-web-browsers-logo-color-tal-revivo.png" alt="Data Driven Documents" title="Data Driven Documents" width="48" height="48" />
-    <img src="./assets/solid.svg" alt="Solid" title="Solid Js" width="50" height="50"  />
-    <img src="https://img.icons8.com/doodle/48/000000/svetle.png" alt="Svelte" title="Svelte" width="50" height="50" />     
-    <img src="./assets/jest.png" alt="Jest" title="Jest" width="48" height="48" />    
-     <!-- <img src="./assets/storybook.svg" alt="Storybook" title="Storybook" width="48" height="48" />   -->
 </div>
 
-<br>
-<h3>Github Statistics:</h3>
-<!-- <div style="display: flex; flex-wrap: wrap; width:100%">
-<div style="padding: 0rem; width:50%;text-align:center;">      
-<img src="https://github-readme-stats.vercel.app/api?username=sahrohit&show_icons=true&count_private=true&theme=vue" />
+#### Backend, Databases & Streams
+<div style="display: flex; flex-wrap: wrap; gap: 8px;">
+    <img src="./assets/nodejs.png" alt="Node.js" title="Node.js" width="48" height="48" />
+    <img src="./assets/express.png" alt="Express.js" title="Express.js" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/graphql/graphql-plain.svg" alt="GraphQL" title="GraphQL" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/socketio/socketio-original.svg" alt="Socket.IO" title="Socket.IO" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" title="PostgreSQL" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original.svg" alt="Redis" title="Redis" width="48" height="48" />
+    <img src="./assets/mysql.svg" alt="MySQL" title="MySQL" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg" alt="Firebase" title="Firebase" width="48" height="48" />
 </div>
-<div style="padding: 0rem; width:50%;">
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sahrohit&layout=compact&theme=vue" width="100%" height="82%"/>
+#### Cloud, DevOps & Tools
+<div style="display: flex; flex-wrap: wrap; gap: 8px;">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" title="AWS" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" title="Docker" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare Workers" title="Cloudflare Workers" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/githubactions/githubactions-original.svg" alt="GitHub Actions" title="GitHub Actions" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" title="Git" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VS Code" title="VS Code" width="48" height="48" />
+    <img src="./assets/vim.png" alt="Vim" title="Vim" width="48" height="48" />
 </div>
-</div> -->
 
-<table>
-  <tr>
-    <td>
-      <img src="https://github-readme-stats.vercel.app/api?username=sahrohit&show_icons=true&count_private=true&theme=dark&hide_border=true" />
-    </td>
-    <td>
-      <img src="https://github-readme-streak-stats.herokuapp.com?user=sahrohit&&theme=dark&hide_border=true"/>
-    </td>
-  </tr>
-  <!-- <tr>
-  <td colspan="2">
-  <img src="https://activity-graph.herokuapp.com/graph?username=sahrohit&theme=xcode"  />
-  </td>
-  </tr> -->
-</table>
+#### AI, Machine Learning & Data Science
+<div style="display: flex; flex-wrap: wrap; gap: 8px;">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="PyTorch" title="PyTorch" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/scikitlearn/scikitlearn-original.svg" alt="scikit-learn" title="scikit-learn" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" alt="Pandas" title="Pandas" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="NumPy" title="NumPy" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/d3js/d3js-original.svg" alt="D3.js" title="D3.js" width="48" height="48" />
+    <img src="https://img.icons8.com/fluency/48/000000/artificial-intelligence.png" alt="AI & LLM Integration" title="AI & LLM Integration (Gemini, MCP, NL-to-SQL)" width="48" height="48" />
+</div>
 
-<div align="center">
-<h3> : Github Visits : </h3>
-<img src="https://count.getloli.com/get/@:sahrohit?theme=rule34" alt="Visitor Counter" />
+---
+
+### 🔭 What I am Learning & Exploring
+<div style="display: flex; flex-wrap: wrap; gap: 8px;">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" title="Kubernetes (Container Orchestration)" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rust/rust-original.svg" alt="Rust" title="Rust (Systems & High-Performance Backends)" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/apachekafka/apachekafka-original.svg" alt="Apache Kafka" title="Apache Kafka (Distributed Event Streaming)" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" alt="Terraform" title="Terraform (Infrastructure as Code)" width="48" height="48" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/wasm/wasm-original.svg" alt="WebAssembly" title="WebAssembly / WASM (High-Performance Compute)" width="48" height="48" />
 </div>

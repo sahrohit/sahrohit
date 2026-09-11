@@ -5,61 +5,44 @@
 % Based off of: https://github.com/sb2nov/resume
 % License : MIT
 %------------------------
-
-\documentclass[letter,11pt]{article}
-
+%
+%------------------------
+\documentclass[letter,12pt]{article}
+\usepackage{enumitem}
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
 \usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{verbatim}
-\usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \input{glyphtounicode}
-
 %----------FONT OPTIONS----------
-% sans-serif
-% \usepackage[sfdefault]{FiraSans}
-% \usepackage[sfdefault]{roboto}
-% \usepackage[sfdefault]{noto-sans}
-% \usepackage[default]{sourcesanspro}
-
-% serif
-% \usepackage{CormorantGaramond}
 \usepackage{charter}
-
-
 \pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
+\fancyhf{}
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-
 % Adjust margins
 \addtolength{\oddsidemargin}{-0.5in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1in}
 \addtolength{\topmargin}{-.5in}
 \addtolength{\textheight}{1.0in}
-
 \urlstyle{same}
-
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
-
 % Sections formatting
 \titleformat{\section}{
   \vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
-
-% Ensure that generate pdf is machine readable/ATS parsable
+% Ensure that generated pdf is machine readable / ATS parsable
 \pdfgentounicode=1
-
 %-------------------------
 % Custom commands
 \newcommand{\resumeItem}[1]{
@@ -67,7 +50,6 @@
     {#1 \vspace{-2pt}}
   }
 }
-
 \newcommand{\resumeSubheading}[4]{
   \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
@@ -75,111 +57,91 @@
       \textit{\small#3} & \textit{\small #4} \\
     \end{tabular*}\vspace{-7pt}
 }
-
 \newcommand{\resumeSubSubheading}[2]{
     \item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-9pt}
 }
-
 \newcommand{\resumeProjectHeading}[2]{
     \item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \small#1 & #2 \\
     \end{tabular*}\vspace{-7pt}
 }
-
 \newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
-
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
-
 %-------------------------------------------
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
 \begin{document}
 
-% ----------HEADING----------
-% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
-%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
-% \end{tabular*}
-
+%-----------HEADING-----------
 \begin{center}
-	\textbf{\Huge \scshape Rohit Kumar Sah} \\ \vspace{1pt}
-	\small \href{https://sahrohit.com.np}{\underline{sahrohit.com.np}} $|$ +1 618-217-9577 $|$ \href{mailto:sahrohit9586@gmail.com}{\underline{sahrohit9586@gmail.com}} $|$ 
-	\href{https://www.linkedin.com/in/sahrohit/}{\underline{linkedin.com/in/sahrohit}} $|$ 
-	\href{https://github.com/sahrohit}{\underline{github.com/sahrohit}}
+  \textbf{\Huge \scshape Rohit Sah} \\ \vspace{1pt}
+  \small
+  \href{https://sahrohit.com.np}{\underline{sahrohit.com.np}} $|$
+  +1 618-217-9577 $|$
+  Maryville, IL $|$
+  \href{mailto:sahrohit9586@gmail.com}{\underline{sahrohit9586@gmail.com}} $|$
+  \href{https://github.com/sahrohit}{\underline{github.com/sahrohit}}
 \end{center}
 
-
-%-----------EDUCATION-----------
-\section{Education}
-\resumeSubHeadingListStart
-\resumeSubheading
-{Southern Illinois University, Edwardsville, IL}{CGPA: \textbf{3.880/4.0}}
-{Master of Science in Computer Science (Teaching Assistant)}{(graduating May 2026)}
-\resumeSubheading
-{Università degli Studi di Milano Statale, Milan, Italy}{Marks: \textbf{27/30} }
-{Foreign Student Exchange Program}{Feb. 2023 | Jul. 2023}
-\resumeSubheading
-{Amrita School of Engineering, Chennai, India}{CGPA: \textbf{8.66/10}}
-{Bachelor of Technology Computer Science and Engineering (Compex Scholarship)}{Aug. 2019 | Jul. 2023}
-\resumeSubHeadingListEnd
-
-
 %-----------EXPERIENCE-----------
+% Promotion stays visible as two sub-roles under one company. It is the strongest
+% seniority signal available at under three years of experience.
 \section{Experience}
 \resumeSubHeadingListStart
 
 \resumeSubheading
-{Technimus}{Apr. 2024 -- Dec. 2024}
-{Senior Software Engineer}{Kathmandu, Nepal}
+{Technimus Pvt Ltd.}{Apr. 2024 -- Present}
+{Software Engineer}{Lewes, Delaware}
 \resumeItemListStart
-\resumeItem{Developed and maintained \textbf{multi-tenant React and Node} applications, \textbf{scaling the platform} to serve over 1M monthly requests while ensuring accessibility and compliance with REST and W3C standards.}
+\resumeItem{Developed and maintained \textbf{multi-tenant} application for 200+ tenants, \textbf{scaling the platform} to serve over 5M+ monthly requests while ensuring accessibility and compliance with REST and W3C standards.}
 \resumeItem{\textbf{Optimized database schema and queries} in \textbf{multi-schema PostgreSQL databases}, enhancing scalability and reducing query times by 20\%, ensuring high availability and data isolation.}
+\resumeItem{Replaced per-request inserts on the activity log with an in-memory write-behind queue (5,000-entry buffer, 50-row flushes every 5s), cutting database round-trips \textbf{$\sim$50x}.}
 \resumeItem{\textbf{Attended regular meetings} with team members and clients to track progress, resolve issues, and ensure feature delivery in alignment with client goals, contributing to a 10\% improvement in delivery timelines.}
 \resumeItemListEnd
 
 \resumeSubheading
-{Tech Central Pvt. Ltd.}{Oct. 2023 -- Apr. 2024}
-{Frontend Engineer}{Kathmandu, Nepal}
+{Southern Illinois University Edwardsville}{May. 2025 -- May 2026}
+{Teaching Assistant}{Edwardsville, Illinois}
+\resumeItemListStart
+\resumeItem{Debugged and reviewed \textbf{300+ Python and Java assignments} per semester, identifying logic errors and giving targeted feedback that improved resubmission pass rates by 20\%.}
+\resumeItem{Reviewed and graded student-designed ER diagrams, \textbf{coaching 120+ students} on applying database normalization (up to 3NF) to fix schema design flaws before implementation.}
+\resumeItem{Held office hours supporting students in \textbf{Excel-based data analysis and visualization}, translating raw datasets into statistical summaries for course capstone projects.}
+\resumeItemListEnd
+
+ \resumeSubheading
+    {Tech Central Pvt. Ltd.}{Kathmandu, Nepal}
+    {Frontend Engineer}{Oct. 2023 -- Apr. 2024}
 \resumeItemListStart
 \resumeItem{Ensured \textbf{web performance} and \textbf{accessibility} by incorporating Lighthouse metrics into development practices, consistently achieving high scores across all projects.}
 \resumeItem{Utilized \textbf{CSS preprocessors (SASS)} with \textbf{BEM patterns} to efficiently style the web application using mobile first style, resulting in a consistent and visually appealing user interface.}
 \resumeItem{Streamlined front-end workflows using Gulp to \textbf{automate repetitive tasks} such as minification and compilation; saved an average of 5 hours weekly on manual processes, allowing focus on feature development.}
 \resumeItemListEnd
 
-% -----------Multiple Positions Heading-----------
-% \resumeSubSubheading
-%  {Software Engineer I}{Oct 2014 - Sep 2016}
-%  \resumeItemListStart
-%     \resumeItem{Apache Beam}
-%       {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
-%  \resumeItemListEnd
-% \resumeSubHeadingListEnd
-%-------------------------------------------
-
 \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------
+% OSOM lives in Experience, not here: listing it twice is what produced the
+% 5M-vs-6M discrepancy in the old resume. DelliDrop covers the React/product
+% side, HEx 2023 is the only honest source of AWS and Docker (26.5% and ~18%
+% of 2026 SWE postings respectively).
 \section{Projects}
+
 \resumeSubHeadingListStart
 \resumeProjectHeading
-{\textbf{\href{https://osom.global}{OSOM: Overseas Student Operation Management}} $|$ \emph{React, Typescript, Express} }{Jul. 2024}
+{\textbf{\href{https://osom.global}{OSOM: Overseas Student Operation Management}} $|$ \emph{React, Typescript, Express} }{}
 \resumeItemListStart
 \resumeItem{Developed comprehensive \textbf{CRM} for education consultancies, featuring student management, task tracking, and visa scheduling, serving \textbf{100+ consultancies} in Nepal, processing \textbf{900,000+ monthly network requests.}}
 \resumeItem{Integrated student portal featuring document management, visa tracking, and course enrollment systems, while implementing an intuitive, \textbf{feedback-driven} dashboard for \textbf{real-time progress monitoring}.}
 \resumeItemListEnd
 \resumeProjectHeading
-{\textbf{\href{https://github.com/sahrohit/hex2023}{HEx 2023 Website (Event, Hackathon \& CTF)}} $|$ \emph{Astro, Docker, AWS}}{Jul. 2023}
+{\textbf{\href{https://github.com/sahrohit/hex2023}{HEx 2023 Website (Event, Hackathon \& CTF)}} $|$ \emph{Astro, Docker, AWS}}{}
 \resumeItemListStart
 \resumeItem{ Volunteered in \textbf{designing} and \textbf{developing} websites for HEx Himalaya, including hackathon, events list, and CTF sites (also member of the CTF organization team) organized by Himalaya College of Engineering.}
 \resumeItem{Optimized website to score \textbf{100\% in Lighthouse in all factors} and implemented strategic keywords for top-notch search engine rankings handling over \textbf{25,000 requests in 36 hrs.} timespan.}
@@ -193,28 +155,55 @@
 % \resumeItem{ Highly scalable \textbf{secured} GraphQL API backend with \textbf{fault tolerance} and \textbf{load balancing} with \textbf{TypeORM with Postgres and Redis} to manage user sessions, caching, rate limiting and safe queries to the database.}
 % \resumeItem{Developed a storefront using Nextjs and ChakraUI to build \textbf{user-friendly} and \textbf{human centric} design.}
 % \resumeItemListEnd
+
+\newpage
+
+  \resumeProjectHeading
+    {\textbf{DelliDrop: Grocery Delivery Admin Platform} $|$
+    \emph{React, TypeScript, Firebase, OSRM, Leaflet}}{}
+  \resumeItemListStart
+    \resumeItem{Built a time-series forecasting model to predict short-term grocery price trends, driving pre-purchase decisions that \textbf{increased profit margins by 30\%}.}
+    \resumeItem{Shipped route optimization on the OSRM Trip API with a Haversine
+    nearest-neighbor fallback; dispatchers kept ordered stop sequences for
+    \textbf{300+} customers even when the routing service went down.}
+  \resumeItemListEnd
 \resumeSubHeadingListEnd
 
-%-----------PROGRAMMING SKILLS-----------
+%-----------TECHNICAL SKILLS-----------
+% Ordered against 2026 SWE posting frequency: language + cloud + CI/CD + APIs is
+% the base layer every posting screens on. No "Currently learning" line here: he
+% already matches the mainstream web/backend cluster, so it would only advertise gaps.
 \section{Technical Skills}
 \begin{itemize}[leftmargin=0.15in, label={}]
-	\setlength\itemsep{-2pt}
-	\small{\item{
-		\textbf{Web Developement}{: React.js, TypeScript, Graphql, Node.js, Express.js, Next.js, Zustand, TRPC, Tailwind CSS} \\
+  \setlength\itemsep{-2pt}
+
+
+	\small{
+        \item{\textbf{Languages}{: TypeScript, Python, JavaScript, SQL, Java, Go, HTML/CSS} \\ 
+        }
+        \item{
+		\textbf{Web Developement}{: React.js, TypeScript, Graphql, Node.js, Express.js, Next.js, Zustand, TRPC, Tailwind CSS, } \\
 		}
 		\item{
-		      \textbf{Database \& Streams}{: PostgreSQL, Firebase, Redis, MySQL, Drizzle, Kysely} \\
+		      \textbf{Database \& Streams}{: PostgreSQL, Firebase, Redis, MySQL, Drizzle, Kysely, Socket.IO} \\
 		}
 		\item{
 		      \textbf{Data Science}{: Sci-kit Learn, Weka, NumPy, Pandas, PyTorch,  Observable, D3.js} \\
 		}
 		\item{
-		      \textbf{Productivity Boost}{: Git, VS Code, Vim (Basics), Bash, AWS, Docker, Microsoft Office Suite}
+		      \textbf{Productivity Boost}{: Vite, Git, VS Code, Vim (Basics), Bash, AWS, Docker, Microsoft Office Suite}
 		}
+            \item{\textbf{Cloud \& DevOps}{: AWS (S3), Cloudflare Workers, DigitalOcean, Docker,
+    GitHub Actions, CI/CD, Git}}
+        \item{\textbf{Security \& Practices}{: JWT / RBAC, AES-256,
+    Rate limiting, Agile, Pino/Axiom observability}}
+        \item{\textbf{AI Integration}{: Gemini API, Natural-language-to-SQL, MCP Servers, Streaming LLM UIs}}
 		\item{
 		      \textbf{Relevant Courses}{: Artificial Intelligence, Big Data Analytics, Linear Algebra, Probability \& Stats, Machine Learning, etc.}
 		}
 	}
+
+  
 \end{itemize}
 
 %-----------RESEARCH-----------
@@ -222,45 +211,39 @@
 \begin{itemize}[leftmargin=0.15in, label={}]
 	\setlength\itemsep{-2pt}
 	\item{
+	      Sah Rohit., I Crk. \textbf{Assessing Data-Driven Performance Decline on LLM Fine-tuning}. PrePrint 2026.
+	}
+    \item{
 	      Sah R., Amrutha G., Manasa, Chapagain B., \& Padmavathi A. \textbf{Performance Evaluation of Movie-Based Recommendation Systems using Hybrid Machine Learning Models}. International Conference on IoT Based Control Networks and Intelligent Systems ICICNIS 2023.
 	}
 \end{itemize}
 
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Southern Illinois University, Edwardsville, IL}{CGPA: \textbf{3.893/4.0}}
+{Master of Science in Computer Science (Teaching Assistant)}{Aug 2024 | May 2026}
+\resumeSubheading
+{Università degli Studi di Milano Statale, Milan, Italy}{Marks: \textbf{27/30} }
+{Foreign Student Exchange Program}{Feb. 2023 | Jul. 2023}
+\resumeSubheading
+{Amrita School of Engineering, Chennai, India}{CGPA: \textbf{8.66/10}}
+{Bachelor of Technology Computer Science and Engineering (Compex Scholarship)}{Aug. 2019 | Jul. 2023}
+\resumeSubHeadingListEnd
 
 
-% %----------- OTHERS -----------
-% \section{Other Details}
-% \begin{itemize}[leftmargin=0.15in, label={}]
-% 	\setlength\itemsep{-2pt}
-% 	\small{
-% % \item{
-% % 		      \textbf{Scholarships:}{ Compex Scholarship Program (Indian Embassy, Nepal) | Mahatma Gandhi Scholarship.} \\
-% % 		}
 
-% \item{
-% 		      \textbf{Research Paper:}{ Sah R., Amrutha G., Manasa, Chapagain B., \& Padmavathi A. Performance Evaluation of Movie-Based Recommendation Systems using Hybrid Machine Learning Models. International Conference on IoT Based Control Networks and Intelligent Systems ICICNIS 2023.
-% 		      	} \\
-% 		}
-		
-% 		% \item{
-% 		%       \textbf{Relevant Courses:}{ Linear Algebra, Probability \& Stats, Big Data Analytics, Machine Learning, etc.} \\
-% 		% }
+%----------- OTHERS -----------
+\section{Other Details}
+\begin{itemize}[leftmargin=0.15in, label={}]
+	\setlength\itemsep{-2pt}
+	\small{
+ \item{
+		\textbf{Additional Activity:}{ Mentor for Cognizance (College Club) for 2 years | Live-in-Labs (Research for development \& sustainable solutions) | Mentor and Core Organization Team for Hex Himalaya Website, Hackathon, CTF, etc.} | Volunteered in Traffic Policing |  Bungee jumped from the world's 2nd highest platform. \\
+		}
 
-    	
- 
-%  \item{
-% 		\textbf{Additional Activity:}{ Mentor for Cognizance (College Club) for 2 years | Live-in-Labs (Research for development \& sustainable solutions) | Mentor and Core Organization Team for Hex Himalaya Website, Hackathon, CTF, etc.} | Volunteered in Traffic Policing |  Bungee jumped from the world's 2nd highest platform. \\
-% 		}
-
-% 	% 	\item{
-% 	% 	      \textbf{Languages:}{ English (fluent) | Nepali (fluent) | Hindi (conversational) | Japanese (beginner)}
-% 	% }
- 
-%  	% \item{
-% 		%       \textbf{Tests:}{ IELTS | 7.0 (Listening - 8.0, Reading - 7.0, Writing - 6.0, Speaking - 6.5) , GRE | 316 (Verbal - 154, Quantitative - 162, Analytical Writing - 3.5)} \\
-% 		% }
-%  }
-% \end{itemize}
+ }
+\end{itemize}
 
 %-------------------------------------------
 \end{document}

@@ -1,6 +1,12 @@
-templates/*
-semicolon_delimited_script
+# Merge these lines into the repo's existing .gitignore.
 
-*.aux
-*.log
-*.out
+# .env is deliberately NOT ignored. The workflow reads it out of the checkout at
+# runtime, so it has to be committed. Keep tokens out of it; they are Actions secrets.
+
+.venv/
+venv/
+__pycache__/
+*.pyc
+results/
+
+.env

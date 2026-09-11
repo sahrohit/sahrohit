@@ -1,0 +1,239 @@
+# Mirrors repos into this account once a day, rewriting commit
+# identities and preserving every commit date.
+#
+# All configuration lives in .env at the repo root. Nothing is configured here.
+#
+# Required repository secrets:
+#   SOURCE_TOKEN  rohit-ks, classic scope `repo`, authorized for SSO
+#   DEST_TOKEN    sahrohit, classic scopes `repo` and `workflow`
+#   ANON_SALT     optional, any random string, salts the colleague pseudonyms
+#   REPOS         optional, overrides the repo list in .env so the repo
+#                 names are not published in this public repository
+
+name: Sync repos
+
+on:
+  schedule:
+    # 03:17 UTC daily, off the top of the hour where GitHub's scheduler is busiest.
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+    inputs:
+      repos:
+        description: "Comma-separated source repos to sync (blank = everything in .env)"
+        required: false
+        default: ""
+      dry_run:
+        description: "Rewrite and verify, but do not push"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sync
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.build.outputs.matrix }}
+      count: ${{ steps.build.outputs.count }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Load configuration
+        env:
+          REPOS_SECRET: ${{ secrets.REPOS }}
+        run: sync/load-env.sh
+
+      - name: Build repo matrix
+        id: build
+        env:
+          FILTER: ${{ inputs.repos }}
+        run: |
+          set -euo pipefail
+
+          # REPOS entries are separated by newlines or commas. An entry is either
+          # `owner/repo` or `owner/repo=destination/other-name`.
+          include=$(
+            # `|| [ -n "$entry" ]` matters: read returns non-zero on a final line with
+            # no trailing newline, which would silently drop the last repo in the list.
+            printf '%s\n' "$REPOS" | tr ',' '\n' | while read -r entry || [ -n "$entry" ]; do
+              [ -n "$entry" ] || continue
+              case "$entry" in \#*) continue ;; esac
+              src="${entry%%=*}"
+              if [ "$entry" = "$src" ]; then
+                tgt="${DEST_OWNER}/${src##*/}"
+              else
+                tgt="${entry#*=}"
+              fi
+              jq -nc --arg s "$src" --arg t "$tgt" '{source:$s,target:$t}'
+            done | jq -sc '.'
+          )
+
+          if [ -n "$FILTER" ]; then
+            include=$(printf '%s' "$include" | jq -c --arg f "$FILTER" '
+              ($f | split(",") | map(sub("^\\s+";"") | sub("\\s+$";""))) as $want
+              | map(select(.source as $s | $want | index($s)))')
+          fi
+
+          count=$(printf '%s' "$include" | jq 'length')
+          echo "matrix=$(printf '%s' "$include" | jq -c '{include: .}')" >> "$GITHUB_OUTPUT"
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+
+          echo "Syncing $count repo(s):"
+          printf '%s' "$include" | jq -r '.[] | "  \(.source) -> \(.target)"'
+          if [ "$count" -eq 0 ]; then
+            echo "::warning::No repos matched. Check REPOS in .env or the 'repos' input."
+          fi
+
+  sync:
+    needs: prepare
+    if: needs.prepare.outputs.count != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    name: ${{ matrix.source }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Load configuration
+        run: sync/load-env.sh
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install git-filter-repo
+        run: pip install --disable-pip-version-check -r sync/requirements.txt
+
+      - name: Summary header
+        run: |
+          {
+            echo "| source | target | branch | commits | head |"
+            echo "| --- | --- | --- | --- | --- |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Sync
+        env:
+          SOURCE: ${{ matrix.source }}
+          TARGET: ${{ matrix.target }}
+          SOURCE_TOKEN: ${{ secrets.SOURCE_TOKEN }}
+          DEST_TOKEN: ${{ secrets.DEST_TOKEN }}
+          ANON_SALT: ${{ secrets.ANON_SALT }}
+          GH_TOKEN: ${{ secrets.DEST_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+        run: |
+          set -euo pipefail
+          export RESULT_FILE="results/$(echo "$SOURCE" | tr '/' '-').json"
+          sync/sync-repo.sh
+
+      - name: Record failure
+        if: failure()
+        env:
+          SOURCE: ${{ matrix.source }}
+          TARGET: ${{ matrix.target }}
+        run: |
+          mkdir -p results
+          printf '{"source":"%s","target":"%s","status":"failed"}\n' "$SOURCE" "$TARGET" \
+            > "results/$(echo "$SOURCE" | tr '/' '-').json"
+
+      - name: Upload result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-result-${{ strategy.job-index }}
+          path: results/
+          if-no-files-found: ignore
+          retention-days: 7
+
+  report:
+    needs: [prepare, sync]
+    if: always() && needs.prepare.outputs.count != '0'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/download-artifact@v4
+        with:
+          path: results
+          pattern: sync-result-*
+          merge-multiple: true
+
+      - name: Record sync state
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          files=(results/*.json)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No result files; nothing to record."
+            exit 0
+          fi
+
+          state=sync/state
+          mkdir -p "$state"
+          jq -s --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            '{ synced_at: $ts, repos: (sort_by(.source)) }' "${files[@]}" > "$state/next.json"
+
+          new_repos=$(jq -S -c '.repos' "$state/next.json")
+          old_repos=$(jq -S -c '.repos' "$state/last-sync.json" 2>/dev/null || echo 'null')
+          old_ts=$(jq -r '.synced_at // "1970-01-01T00:00:00Z"' "$state/last-sync.json" 2>/dev/null || echo '1970-01-01T00:00:00Z')
+          age_days=$(( ( $(date -u +%s) - $(date -u -d "$old_ts" +%s) ) / 86400 ))
+
+          # Commit when something changed, and weekly regardless. The weekly commit is
+          # deliberate: GitHub disables scheduled workflows after 60 days of repository
+          # inactivity, and the sync itself never writes here.
+          if [ "$new_repos" = "$old_repos" ] && [ "$age_days" -lt 7 ]; then
+            echo "State unchanged and last commit is ${age_days}d old; skipping commit."
+            rm -f "$state/next.json"
+            exit 0
+          fi
+
+          mv "$state/next.json" "$state/last-sync.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$state/last-sync.json"
+          if git diff --cached --quiet; then
+            echo "Nothing staged."
+          else
+            git commit -q -m "chore: record sync state [skip ci]"
+            git push -q
+          fi
+
+      - name: Open or close the failure issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OUTCOME: ${{ needs.sync.result }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          gh label create sync-failure --color B60205 --description "Automated mirror sync failed" --force >/dev/null 2>&1 || true
+          existing=$(gh issue list --label sync-failure --state open --limit 1 --json number --jq '.[0].number // empty')
+
+          if [ "$OUTCOME" = "success" ]; then
+            if [ -n "$existing" ]; then
+              gh issue close "$existing" --comment "Sync recovered: $RUN_URL"
+            fi
+            exit 0
+          fi
+
+          body="The scheduled mirror sync did not finish cleanly (result: \`$OUTCOME\`).
+
+          Run: $RUN_URL
+
+          Common causes: SOURCE_TOKEN expired or lost SAML SSO authorization, DEST_TOKEN
+          expired or is missing the \`workflow\` scope, or push protection blocked a secret."
+
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "$body"
+          else
+            gh issue create --title "Mirror sync failing" --label sync-failure --body "$body"
+          fi

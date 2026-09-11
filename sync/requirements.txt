@@ -1,0 +1,3 @@
+# Pin a major version; git-filter-repo is a single-file tool and upgrades cleanly.
+# Run `pip freeze | grep git-filter-repo` after the first green run if you want an exact pin.
+git-filter-repo>=2.38,<3
