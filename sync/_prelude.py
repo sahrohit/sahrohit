@@ -65,7 +65,7 @@ def rewrite_message(message):
         return m.group(1) + m.group(2) + name + b' <' + email + b'>'
 
     # Co-authored-by: Someone <someone@something.com>
-    message = re.sub(br'^([ \t]*(?:' + _TRAILERS + br'))([ \t]*:[ \t]*)(.*?)[ \t]*<([^<>\s]+)>[ \t]*$',
+    message = re.sub(br'^([ \t]*(?:' + _TRAILERS + br'))([ \t]*:[ \t]*)(.*?)[ \t]*<([^<>\s]+)>[\r \t]*$',
                      _trailer, message, flags=re.IGNORECASE | re.MULTILINE)
 
     def _email(m):

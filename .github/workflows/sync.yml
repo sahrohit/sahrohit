@@ -75,21 +75,27 @@ jobs:
           include=$(
             # `|| [ -n "$entry" ]` matters: read returns non-zero on a final line with
             # no trailing newline, which would silently drop the last repo in the list.
-            printf '%s\n' "$REPOS" | tr ',' '\n' | while read -r entry || [ -n "$entry" ]; do
+            printf '%s\n' "$REPOS" | tr -d '\r' | tr ',' '\n' | while read -r entry || [ -n "$entry" ]; do
+              entry="${entry#"${entry%%[![:space:]]*}"}"
+              entry="${entry%"${entry##*[![:space:]]}"}"
               [ -n "$entry" ] || continue
               case "$entry" in \#*) continue ;; esac
               src="${entry%%=*}"
+              src="${src#"${src%%[![:space:]]*}"}"
+              src="${src%"${src##*[![:space:]]}"}"
               if [ "$entry" = "$src" ]; then
                 tgt="${DEST_OWNER}/${src##*/}"
               else
                 tgt="${entry#*=}"
+                tgt="${tgt#"${tgt%%[![:space:]]*}"}"
+                tgt="${tgt%"${tgt##*[![:space:]]}"}"
               fi
               jq -nc --arg s "$src" --arg t "$tgt" '{source:$s,target:$t}'
             done | jq -sc '.'
           )
 
           if [ -n "$FILTER" ]; then
-            include=$(printf '%s' "$include" | jq -c --arg f "$FILTER" '
+            include=$(printf '%s' "$include" | jq -c --arg f "$(printf '%s' "$FILTER" | tr -d '\r')" '
               ($f | split(",") | map(sub("^\\s+";"") | sub("\\s+$";""))) as $want
               | map(select(.source as $s | $want | index($s)))')
           fi
@@ -145,7 +151,10 @@ jobs:
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
         run: |
           set -euo pipefail
-          export RESULT_FILE="results/$(echo "$SOURCE" | tr '/' '-').json"
+          SOURCE=$(printf '%s' "$SOURCE" | tr -d '\r' | xargs)
+          TARGET=$(printf '%s' "$TARGET" | tr -d '\r' | xargs)
+          safe_name=$(printf '%s' "$SOURCE" | tr '/' '-' | tr -cd 'A-Za-z0-9._-')
+          export RESULT_FILE="results/${safe_name}.json"
           bash sync/sync-repo.sh
 
       - name: Record failure
@@ -154,9 +163,13 @@ jobs:
           SOURCE: ${{ matrix.source }}
           TARGET: ${{ matrix.target }}
         run: |
+          set -euo pipefail
+          SOURCE=$(printf '%s' "$SOURCE" | tr -d '\r' | xargs)
+          TARGET=$(printf '%s' "$TARGET" | tr -d '\r' | xargs)
+          safe_name=$(printf '%s' "$SOURCE" | tr '/' '-' | tr -cd 'A-Za-z0-9._-')
           mkdir -p results
           printf '{"source":"%s","target":"%s","status":"failed"}\n' "$SOURCE" "$TARGET" \
-            > "results/$(echo "$SOURCE" | tr '/' '-').json"
+            > "results/${safe_name}.json"
 
       - name: Upload result
         if: always()

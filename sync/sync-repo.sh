@@ -27,8 +27,12 @@ die()  { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
 : "${NEW_NAME:?set NEW_NAME}"
 : "${NEW_EMAIL:?set NEW_EMAIL}"
 
-SOURCE_OWNER="${SOURCE_OWNER}"
-DEST_OWNER="${DEST_OWNER:-sahrohit}"
+SOURCE="$(printf '%s' "$SOURCE" | tr -d '\r' | xargs)"
+TARGET="$(printf '%s' "${TARGET:-}" | tr -d '\r' | xargs)"
+SOURCE_OWNER="$(printf '%s' "${SOURCE_OWNER:-Technimus}" | tr -d '\r' | xargs)"
+DEST_OWNER="$(printf '%s' "${DEST_OWNER:-sahrohit}" | tr -d '\r' | xargs)"
+NEW_NAME="$(printf '%s' "$NEW_NAME" | tr -d '\r')"
+NEW_EMAIL="$(printf '%s' "$NEW_EMAIL" | tr -d '\r')"
 TARGET="${TARGET:-${DEST_OWNER}/${SOURCE##*/}}"
 DRY_RUN="${DRY_RUN:-false}"
 
